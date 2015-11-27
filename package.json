@@ -1,0 +1,28 @@
+{
+  "name": "geon",
+  "version": "0.1.0",
+  "description": "Geonames data collector",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/molforp/geon.git"
+  },
+  "keywords": [
+    "geonames",
+    "geo",
+    "geobase",
+    "cities",
+    "countries",
+    "regions"
+  ],
+  "author": "Dmitry Kokorev",
+  "license": "MIT",
+  "homepage": "https://github.com/molforp/geon",
+  "dependencies": {
+    "commander": "^2.9.0",
+    "request": "^2.67.0",
+    "unzip": "^0.1.11",
+    "geonames-reader": "^0.2.4",
+    "fs-extra": "^0.26.2",
+    "lodash": "^3.10.1"
+  }
+}
