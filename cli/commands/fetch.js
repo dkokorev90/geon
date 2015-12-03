@@ -19,7 +19,9 @@ module.exports = function(program, config) {
                 options.alt && geoRequestUnzip('alternateNames');
                 options.ci && geoRequestTxt('countryInfo');
                 options.re && geoRequestTxt('admin1CodesASCII');
-                options.c1000 && geoRequestUnzip('cities1000');
+                options.c1 && geoRequestUnzip('cities1000');
+                options.c5 && geoRequestUnzip('cities5000');
+                options.c15 && geoRequestUnzip('cities15000');
 
                 if (!countries.length) return;
 
@@ -57,11 +59,10 @@ module.exports = function(program, config) {
             function geoRequestUnzip(target, subDir) {
                 if (!subDir) subDir = '';
 
-                fs.removeSync(dist);
-
                 request('http://download.geonames.org/export/dump/' + target + '.zip')
                     .on('response', function(res, err) {
                         console.log('%s downloaded!', target);
+                        console.log('Unziping...');
                     })
                     .on('error', function(err) {
                         console.log('%s download error!', target);
