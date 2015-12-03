@@ -124,6 +124,11 @@ module.exports = function(program, config) {
 
                     cb();
                 }, function(err) {
+                    if (err) {
+                        console.log('Cities and regions error: %s', err);
+                        return;
+                    }
+
                     _.each(countries, function(params, cc) {
                         fs.outputJsonSync(path.join(config.dist.countries, cc, 'cities.json'), params.cities);
                         fs.outputJsonSync(path.join(config.dist.countries, cc, 'regions.json'), params.regions);

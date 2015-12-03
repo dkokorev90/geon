@@ -82,6 +82,11 @@ module.exports = function(program, config) {
 
                 cb();
             }, function(err) {
+                if (err) {
+                    console.log('Cities error: %s', err);
+                    return;
+                }
+
                 _.each(countriesList, function(cities, cc) {
                     fs.outputJsonSync(path.join(config.dist.countries, cc, 'cities.json'), cities);
                     console.log(cc + ': ' + cities.length);

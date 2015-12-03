@@ -84,6 +84,11 @@ module.exports = function(program, config) {
 
                 cb();
             }, function(err) {
+                if (err) {
+                    console.log('Regions error: %s', err);
+                    return;
+                }
+
                 _.each(regions, function(regions, cc) {
                     fs.outputJsonSync(path.join(config.dist.countries, cc, 'regions.json'), regions);
                     console.log(cc + ': ' + regions.length);
